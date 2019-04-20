@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent" android:id="@+id/imageview">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/linearLayout">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp" tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/imageView"/>
+        <TextView
+                android:text="Add a new task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView8" android:textStyle="bold"
+                android:textSize="36sp" android:textColor="#008392"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content" tools:layout_editor_absoluteY="247dp"
+                tools:layout_editor_absoluteX="0dp">
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Title"
+                    android:ems="10"
+                    android:id="@+id/title" android:lineSpacingExtra="24sp" android:textColor="#008392"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Details"
+                    android:ems="10"
+                    android:id="@+id/content" android:textColor="#008392"/>
+            <TextView
+                    android:text="Due date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView7" android:textStyle="bold"
+                    android:textColor="#008392"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/due_date"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:text="Add location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/location" android:layout_weight="1"/>
+            <Button
+                    android:text="Camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/Camera" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+            android:text="SAVE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/button5"
+            android:textColor="@android:color/white" android:background="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="432dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"/>
+</android.support.constraint.ConstraintLayout>
