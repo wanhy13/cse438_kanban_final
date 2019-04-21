@@ -109,6 +109,7 @@ class CustomAdapterDone(val tasks:ArrayList<Task> , val context: Context, val ta
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("index", p1.toString())
             intent.putExtra("section","done")
+            intent.putExtra("edit",true)
             context.startActivity(intent)
         }
         p0.row.setOnLongClickListener {

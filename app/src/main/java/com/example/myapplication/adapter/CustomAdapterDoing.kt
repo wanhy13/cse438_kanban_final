@@ -162,6 +162,7 @@ class CustomAdapterDoing(val tasks:ArrayList<Task> , val context: Context, val t
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("index", p1.toString())
             intent.putExtra("section","doing")
+            intent.putExtra("edit",true)
             context.startActivity(intent)
         }
         p0.row.setOnLongClickListener {

@@ -147,9 +147,63 @@ class CreateDetailActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
 
                     val userData = it.result!!
+                   //todo
+                    var data = ArrayList<Task>();
 
-                    var data = userData.get("todo") as? ArrayList<Task>;
+                    var datahash = userData?.get("todo") as? ArrayList<HashMap<String, Any>>
+
+                    if (datahash == null) {
+                        //TODO: new user
+                        Log.e("todo get fire",datahash)
+
+                    } else {
+                        for (i in datahash) {
+                            var newTask =
+                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
+                            data.add(newTask)
+                            Log.e("data:", data.size.toString())
+                        }
+                    }
+                    //doing
+                    var data2 = ArrayList<Task>();
+
+                    var data2hash = userData?.get("doing") as? ArrayList<HashMap<String, Any>>
+
+                    if (data2hash == null) {
+                        //TODO: new user
+
+                    } else {
+                        for (i in data2hash) {
+                            var newTask =
+                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
+                            data2.add(newTask)
+                        }
+                    }
+                    //done
+                    var data3 = ArrayList<Task>();
+
+                    var data3hash = userData?.get("done") as? ArrayList<HashMap<String, Any>>
+
+                    if (data3hash == null) {
+                        //TODO: new user
+
+                    } else {
+                        for (i in data3hash) {
+                            var newTask =
+                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
+                            data3.add(newTask)
+                        }
+                    }
+
+
+
                     if (data == null) {
+                        data = ArrayList<Task>()
+                    }
+                    if (data2 == null) {
+                        data = ArrayList<Task>()
+                    }
+                    if (data3 == null) {
                         data = ArrayList<Task>()
                     }
 
@@ -159,13 +213,35 @@ class CreateDetailActivity : AppCompatActivity() {
                         Task(dates, titles, contents,"")
                     }
 
-                    data.add(task)
+                    if(edit){
+                        if(section=="todo"){
+                            Log.e("todo length",data.size.toString())
+                            var retask = data.get(index)
+
+                            data.remove(retask)
+                            data.add(task)
+
+                        }
+                        if(section=="doing"){
+
+                            data2!!.remove(data2.get(index))
+                            data2.add(task)
+                        }
+                        if(section=="done"){
+                            data3!!.remove(data3.get(index))
+                            data3.add(task)
+                        }
+                    }else{
+                        data.add(task)
+                    }
+
+
                     val map = hashMapOf(
                         Pair("username", userData.get("username")),
                         Pair("userId", userId),
                         Pair("todo", data),
-                        Pair("doing", userData.get("doing")),
-                        Pair("done", userData.get("done"))
+                        Pair("doing", data2),
+                        Pair("done", data3)
                     )
                     db.collection("users").document(userId).set(map)
                     Toast.makeText(this, "Add Suceessfully", Toast.LENGTH_SHORT).show()

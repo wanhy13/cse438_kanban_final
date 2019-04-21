@@ -107,6 +107,7 @@ class CustomAdapter(val tasks:ArrayList<Task> , val context: Context, val tab:In
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("index", p1.toString())
             intent.putExtra("section","todo")
+            intent.putExtra("edit",true)
             context.startActivity(intent)
         }
 
