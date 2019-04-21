@@ -72,7 +72,7 @@ class CreateDetailActivity : AppCompatActivity() {
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH)+1
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         var textview2 = findViewById<TextView>(R.id.due_date)
@@ -126,9 +126,11 @@ class CreateDetailActivity : AppCompatActivity() {
         }
         location.setOnClickListener() {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, myear, mmonth, mdayOfMonth ->
-                textview2.setText("" + mdayOfMonth + "/" + mmonth + "/" + myear)
+                var monthchange=mmonth+1
+                textview2.setText("" + mdayOfMonth + "/" + monthchange + "/" + myear)
             }, year, month, day)
             dpd.show();
+
         }
 
 
