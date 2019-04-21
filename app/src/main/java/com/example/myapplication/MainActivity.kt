@@ -54,11 +54,11 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, AccountActivity::class.java)
                 startActivity(intent)
             }
-            if (App.firebaseAuth != null && App.firebaseAuth?.currentUser != null) {
+           // if (App.firebaseAuth != null && App.firebaseAuth?.currentUser != null) {
                 val intent = Intent(this, TabActivity::class.java)
                 startActivity(intent)
                 ft.commit()
-            }
+           // }
         }
 //        val ada[ter]
 
