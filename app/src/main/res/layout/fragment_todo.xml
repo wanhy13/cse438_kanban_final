@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:background="#666666"
+             android:background="#333333"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".fragment.TodoFragment">
@@ -17,9 +17,8 @@
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/favorites_list"
                 android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:background="#666666" tools:listitem="@layout/recycler_view_item"
+                android:layout_height="wrap_content"
+                android:background="#333333" tools:listitem="@layout/recycler_view_item"
                 android:scrollbars="vertical" android:clipToPadding="false"/>
 
 
@@ -31,12 +30,12 @@
 
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_input_add" app:backgroundTint="#333333"/>
+            app:srcCompat="@android:drawable/ic_input_add" app:backgroundTint="#666666"/>
     <Button
             android:text="Sign Out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#666666"
+            android:background="#333333"
             android:textColor="#eeeeee"
             android:layout_gravity="bottom|start"
             android:id="@+id/newButton"/>

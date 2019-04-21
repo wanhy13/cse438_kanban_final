@@ -34,14 +34,14 @@
                 android:layout_height="match_parent" android:layout_weight="1">
             <Button
                     android:text="←"
-                    android:layout_width="45dp"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent" android:id="@+id/leftButton"
                     android:textColor="@android:color/white"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textStyle="bold" android:textSize="35sp"/>
             <Button
                     android:text="→"
-                    android:layout_width="45dp"
-                    android:layout_height="match_parent" android:id="@+id/rightButton"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content" android:id="@+id/rightButton"
                     android:textColor="@android:color/white"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textStyle="bold" android:textSize="35sp"
             />
