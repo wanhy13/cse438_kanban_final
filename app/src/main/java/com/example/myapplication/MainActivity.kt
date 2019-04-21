@@ -17,7 +17,10 @@ import com.google.firebase.auth.FirebaseAuth
 
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
+    val fm = supportFragmentManager
 
+    // add
+    val ft = fm.beginTransaction()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -30,10 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Load Fragment into View
-        val fm = supportFragmentManager
 
-        // add
-        val ft = fm.beginTransaction()
 
         if (networkInfo == null) {
             Log.e("NETWORK", "not connected")
@@ -54,15 +54,19 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, AccountActivity::class.java)
                 startActivity(intent)
             }
-           // if (App.firebaseAuth != null && App.firebaseAuth?.currentUser != null) {
-                val intent = Intent(this, TabActivity::class.java)
-                startActivity(intent)
-                ft.commit()
-           // }
+
         }
 //        val ada[ter]
 
 
+    }
+    override fun onStart(){
+        super.onStart()
+        if (App.firebaseAuth != null && App.firebaseAuth?.currentUser != null) {
+            val intent = Intent(this, TabActivity::class.java)
+            startActivity(intent)
+            ft.commit()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
