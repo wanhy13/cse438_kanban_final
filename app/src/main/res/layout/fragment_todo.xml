@@ -7,10 +7,11 @@
              tools:context=".fragment.TodoFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <ScrollView
             android:layout_width="match_parent"
 
-            android:layout_height="597dp">
+            android:layout_height="wrap_content">
 
 
         <android.support.v7.widget.RecyclerView
@@ -23,7 +24,6 @@
 
 
     </ScrollView>
-
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab2"
             android:layout_width="70dp"
@@ -31,13 +31,14 @@
 
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_input_add" app:backgroundTint="#2e4c66"/>
+            app:srcCompat="@android:drawable/ic_input_add" app:backgroundTint="#333333"/>
     <Button
-            android:text="Button"
+            android:text="Sign Out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#666666"
+            android:textColor="#eeeeee"
             android:layout_gravity="bottom|start"
-
             android:id="@+id/newButton"/>
 
 </FrameLayout>

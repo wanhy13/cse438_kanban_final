@@ -11,27 +11,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
 
-        <ImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/ic_account_circle_black_24dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:contentDescription="@string/account_picture"/>
-
+        <TextView
+                android:text="Kanban"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="48sp"
+                android:textStyle="bold" android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/first_name" android:layout_marginTop="20dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="169dp"
+                app:layout_constraintHorizontal_bias="0.0" android:textColor="#666666"/>
         <EditText
                 android:id="@+id/first_name"
                 android:hint="@string/first_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
                 android:inputType="textPersonName"
-                tools:ignore="Autofill"/>
+                tools:ignore="Autofill" android:layout_marginTop="7dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"/>
 
         <EditText
                 android:id="@+id/last_name"
@@ -92,7 +90,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
-        />
+                android:textColor="@android:color/white" android:background="#666666"/>
 
     </android.support.constraint.ConstraintLayout>
 
