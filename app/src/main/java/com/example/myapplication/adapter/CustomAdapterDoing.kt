@@ -89,13 +89,11 @@ class CustomAdapterDoing(val tasks:ArrayList<Task> , val context: Context, val t
                     db.collection("users").document(userId).set(map)
                     Log.e("customAdapter","i am working")
 
-                    //TodoFragment.update()
-                    //DoingFragment.update()
+
 
 
 
                 } else {
-                    //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -144,13 +142,11 @@ class CustomAdapterDoing(val tasks:ArrayList<Task> , val context: Context, val t
                     db.collection("users").document(userId).set(map)
                     Log.e("customAdapter","i am working")
 
-                    //TodoFragment.update()
-                    //DoingFragment.update()
+
 
 
 
                 } else {
-                    //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -230,12 +226,10 @@ class CustomAdapterDoing(val tasks:ArrayList<Task> , val context: Context, val t
                 db.collection("users").document(userId).set(map)
                 Log.e("customAdapter", "i am working")
 
-                //TodoFragment.update()
-                //DoingFragment.update()
+
 
 
             } else {
-                //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
             }
         }
     }

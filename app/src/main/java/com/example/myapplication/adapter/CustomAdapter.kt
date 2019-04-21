@@ -43,7 +43,7 @@ class CustomAdapter(val tasks:ArrayList<Task> , val context: Context, val tab:In
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
         val task :Task = tasks[p1]
-        Log.e("task",task.toString())
+
         p0.textViewName.text = task.getTitle()
         p0.textViewAddress.text = task.getDate()
         p0.right.setOnClickListener(){
@@ -87,15 +87,12 @@ class CustomAdapter(val tasks:ArrayList<Task> , val context: Context, val tab:In
                         Pair("done", userData.get("done"))
                     )
                     db.collection("users").document(userId).set(map)
-                    Log.e("customAdapter","i am working")
 
-                    //TodoFragment.update()
-                    //DoingFragment.update()
 
 
 
                 } else {
-                    //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
+
                 }
 
 
@@ -174,14 +171,13 @@ class CustomAdapter(val tasks:ArrayList<Task> , val context: Context, val tab:In
                     Pair("done", userData.get("done"))
                 )
                 db.collection("users").document(userId).set(map)
-                Log.e("customAdapter", "i am working")
 
-                //TodoFragment.update()
-                //DoingFragment.update()
+
+
 
 
             } else {
-                //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
+
             }
         }
     }

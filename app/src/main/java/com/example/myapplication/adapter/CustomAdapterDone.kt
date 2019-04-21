@@ -91,13 +91,11 @@ class CustomAdapterDone(val tasks:ArrayList<Task> , val context: Context, val ta
                     db.collection("users").document(userId).set(map)
                     Log.e("customAdapter","i am working")
 
-                    //TodoFragment.update()
-                    //DoingFragment.update()
+
 
 
 
                 } else {
-                    //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -105,7 +103,6 @@ class CustomAdapterDone(val tasks:ArrayList<Task> , val context: Context, val ta
         }
         p0.row.setOnClickListener {
             val intent = Intent(context, CreateDetailActivity::class.java)
-            //intent.putExtra("PRODUCT", product)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("index", p1.toString())
             intent.putExtra("section","done")
@@ -177,12 +174,9 @@ class CustomAdapterDone(val tasks:ArrayList<Task> , val context: Context, val ta
                 db.collection("users").document(userId).set(map)
                 Log.e("customAdapter", "i am working")
 
-                //TodoFragment.update()
-                //DoingFragment.update()
 
 
             } else {
-                //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
             }
         }
     }

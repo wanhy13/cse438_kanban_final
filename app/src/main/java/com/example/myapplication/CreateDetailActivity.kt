@@ -110,13 +110,11 @@ class CreateDetailActivity : AppCompatActivity() {
 
 
 
-                    //TodoFragment.update()
-                    //DoingFragment.update()
+
 
 
 
                 } else {
-                    //Toast.makeText(this, "Unable to get score", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -156,14 +154,14 @@ class CreateDetailActivity : AppCompatActivity() {
 
                     if (datahash == null) {
                         //TODO: new user
-                        Log.e("todo get fire",datahash)
+
 
                     } else {
                         for (i in datahash) {
                             var newTask =
                                 Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
                             data.add(newTask)
-                            Log.e("data:", data.size.toString())
+
                         }
                     }
                     //doing
@@ -217,7 +215,7 @@ class CreateDetailActivity : AppCompatActivity() {
 
                     if(edit){
                         if(section=="todo"){
-                            Log.e("todo length",data.size.toString())
+
                             var retask = data.get(index)
 
                             data.remove(retask)
@@ -308,11 +306,6 @@ class CreateDetailActivity : AppCompatActivity() {
             currentPhotoPath = absolutePath
         }
     }
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-//            galleryAddPic(data)
-//        }
-//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {

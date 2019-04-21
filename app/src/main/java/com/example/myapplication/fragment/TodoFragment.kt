@@ -48,7 +48,7 @@ class TodoFragment  (val mContext: Context): Fragment() {
     override fun onStart() {
         super.onStart()
 
-       // mrecyclerView =  findViewById<RecyclerView>(R.id.favorites_list)
+
         fab2.setOnClickListener { view ->
             val intent = Intent(getActivity(), CreateDetailActivity::class.java)
             intent.putExtra("edit",false)

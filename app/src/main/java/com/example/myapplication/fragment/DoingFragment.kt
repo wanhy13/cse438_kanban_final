@@ -36,7 +36,6 @@ class DoingFragment (val mContext: Context): Fragment() {
         super.onStart()
 
         favorites_list_DOING.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        //favorites_list_DOING.adapter = adapter
 
         update()
 
@@ -76,11 +75,7 @@ class DoingFragment (val mContext: Context): Fragment() {
             }
         }
 
-//        db.collection("users").document(userId!!).get().addOnCompleteListener { it2 ->
-//
-//
-//
-//        }
+
     }
 
 }
