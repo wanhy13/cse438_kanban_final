@@ -19,7 +19,7 @@
             android:layout_height="wrap_content" android:id="@+id/button5"
             android:textColor="@android:color/white" android:background="#333333"
             android:textSize="24sp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     <LinearLayout
@@ -67,7 +67,7 @@
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="date|datetime"
+                    android:inputType="date|datetime|text"
                     android:ems="10"
                     android:id="@+id/due_date"/>
             <Button

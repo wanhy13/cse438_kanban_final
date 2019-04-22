@@ -66,8 +66,6 @@ class CreateDetailActivity : AppCompatActivity() {
            section = intent.getStringExtra("section")
        }
 
-
-
         mProgress = ProgressDialog(this);
 
         val c = Calendar.getInstance()
@@ -125,7 +123,7 @@ class CreateDetailActivity : AppCompatActivity() {
         location.setOnClickListener() {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, myear, mmonth, mdayOfMonth ->
                 var monthchange=mmonth+1
-                textview2.setText("" + mdayOfMonth + "/" + monthchange + "/" + myear)
+                textview2.setText("" + monthchange + "/" + mdayOfMonth + "/" + myear)
             }, year, month, day)
             dpd.show();
 
@@ -136,119 +134,153 @@ class CreateDetailActivity : AppCompatActivity() {
 
 
             contents = textview3.text.toString();
-
             titles = textview.text.toString();
             dates = textview2.text.toString();
 
-            val db = FirebaseFirestore.getInstance()
-            val userId = App.firebaseAuth?.currentUser!!.uid
+            //Sanitizing user's input
+            if (titles.length >48) {
+                Toast.makeText(applicationContext, "Title should be within 48 characters. Keep it short", Toast.LENGTH_SHORT).show()
+            }
 
-            db.collection("users").document(userId).get().addOnCompleteListener { it ->
-                if (it.isSuccessful) {
+            else if (titles.length ==0) {
+                Toast.makeText(applicationContext, "Please enter the title", Toast.LENGTH_SHORT).show()
+            }
 
-                    val userData = it.result!!
-                   //todo
-                    var data = ArrayList<Task>();
-
-                    var datahash = userData?.get("todo") as? ArrayList<HashMap<String, Any>>
-
-                    if (datahash == null) {
-                        //TODO: new user
+            else if (contents.length>120) {
+                Toast.makeText(applicationContext, "Details should be within 120 characters", Toast.LENGTH_SHORT).show()
+            }
+            else if (dates.length>20) {
+                Toast.makeText(applicationContext, "Invalid date", Toast.LENGTH_SHORT).show()
+            }
 
 
-                    } else {
-                        for (i in datahash) {
-                            var newTask =
-                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
-                            data.add(newTask)
 
+            else {
+                val db = FirebaseFirestore.getInstance()
+                val userId = App.firebaseAuth?.currentUser!!.uid
+
+                db.collection("users").document(userId).get().addOnCompleteListener { it ->
+                    if (it.isSuccessful) {
+
+                        val userData = it.result!!
+                        //todo
+                        var data = ArrayList<Task>();
+
+                        var datahash = userData?.get("todo") as? ArrayList<HashMap<String, Any>>
+
+                        if (datahash == null) {
+                            //TODO: new user
+
+
+                        } else {
+                            for (i in datahash) {
+                                var newTask =
+                                    Task(
+                                        i.get("date").toString(),
+                                        i.get("title").toString(),
+                                        i.get("body").toString(),
+                                        i.get("photo").toString()
+                                    )
+                                data.add(newTask)
+
+                            }
                         }
-                    }
-                    //doing
-                    var data2 = ArrayList<Task>();
+                        //doing
+                        var data2 = ArrayList<Task>();
 
-                    var data2hash = userData?.get("doing") as? ArrayList<HashMap<String, Any>>
+                        var data2hash = userData?.get("doing") as? ArrayList<HashMap<String, Any>>
 
-                    if (data2hash == null) {
-                        //TODO: new user
+                        if (data2hash == null) {
+                            //TODO: new user
 
-                    } else {
-                        for (i in data2hash) {
-                            var newTask =
-                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
-                            data2.add(newTask)
+                        } else {
+                            for (i in data2hash) {
+                                var newTask =
+                                    Task(
+                                        i.get("date").toString(),
+                                        i.get("title").toString(),
+                                        i.get("body").toString(),
+                                        i.get("photo").toString()
+                                    )
+                                data2.add(newTask)
+                            }
                         }
-                    }
-                    //done
-                    var data3 = ArrayList<Task>();
+                        //done
+                        var data3 = ArrayList<Task>();
 
-                    var data3hash = userData?.get("done") as? ArrayList<HashMap<String, Any>>
+                        var data3hash = userData?.get("done") as? ArrayList<HashMap<String, Any>>
 
-                    if (data3hash == null) {
-                        //TODO: new user
+                        if (data3hash == null) {
+                            //TODO: new user
 
-                    } else {
-                        for (i in data3hash) {
-                            var newTask =
-                                Task(i.get("date").toString(), i.get("title").toString(), i.get("body").toString(),i.get("photo").toString())
-                            data3.add(newTask)
+                        } else {
+                            for (i in data3hash) {
+                                var newTask =
+                                    Task(
+                                        i.get("date").toString(),
+                                        i.get("title").toString(),
+                                        i.get("body").toString(),
+                                        i.get("photo").toString()
+                                    )
+                                data3.add(newTask)
+                            }
                         }
-                    }
 
 
 
-                    if (data == null) {
-                        data = ArrayList<Task>()
-                    }
-                    if (data2 == null) {
-                        data = ArrayList<Task>()
-                    }
-                    if (data3 == null) {
-                        data = ArrayList<Task>()
-                    }
+                        if (data == null) {
+                            data = ArrayList<Task>()
+                        }
+                        if (data2 == null) {
+                            data = ArrayList<Task>()
+                        }
+                        if (data3 == null) {
+                            data = ArrayList<Task>()
+                        }
 
-                    var task = if (::photoURI.isInitialized) {
-                        Task(dates, titles, contents,photoURI.toString())
-                    } else {
-                        Task(dates, titles, contents,"")
-                    }
+                        var task = if (::photoURI.isInitialized) {
+                            Task(dates, titles, contents, photoURI.toString())
+                        } else {
+                            Task(dates, titles, contents, "")
+                        }
 
-                    if(edit){
-                        if(section=="todo"){
+                        if (edit) {
+                            if (section == "todo") {
 
-                            var retask = data.get(index)
+                                var retask = data.get(index)
 
-                            data.remove(retask)
+                                data.remove(retask)
+                                data.add(task)
+
+                            }
+                            if (section == "doing") {
+
+                                data2!!.remove(data2.get(index))
+                                data2.add(task)
+                            }
+                            if (section == "done") {
+                                data3!!.remove(data3.get(index))
+                                data3.add(task)
+                            }
+                        } else {
                             data.add(task)
+                        }
 
-                        }
-                        if(section=="doing"){
 
-                            data2!!.remove(data2.get(index))
-                            data2.add(task)
-                        }
-                        if(section=="done"){
-                            data3!!.remove(data3.get(index))
-                            data3.add(task)
-                        }
-                    }else{
-                        data.add(task)
+                        val map = hashMapOf(
+                            Pair("username", userData.get("username")),
+                            Pair("userId", userId),
+                            Pair("todo", data),
+                            Pair("doing", data2),
+                            Pair("done", data3)
+                        )
+                        db.collection("users").document(userId).set(map)
+                        Toast.makeText(this, "Updated successfully", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Unable to get", Toast.LENGTH_SHORT).show()
                     }
 
-
-                    val map = hashMapOf(
-                        Pair("username", userData.get("username")),
-                        Pair("userId", userId),
-                        Pair("todo", data),
-                        Pair("doing", data2),
-                        Pair("done", data3)
-                    )
-                    db.collection("users").document(userId).set(map)
-                    Toast.makeText(this, "Add Suceessfully", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Unable to get", Toast.LENGTH_SHORT).show()
                 }
-
             }
 
         }

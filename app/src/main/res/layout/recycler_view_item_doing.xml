@@ -10,8 +10,8 @@
 
     <TextView
             android:id="@+id/textView"
-            android:layout_width="298dp"
-            android:layout_height="90dp"
+            android:layout_width="267dp"
+            android:layout_height="74dp"
             tools:text="@tools:sample/full_names"
             android:textSize="22sp"
             android:padding="5dp"
@@ -34,13 +34,13 @@
                 android:layout_height="match_parent" android:layout_weight="1">
             <Button
                     android:text="←"
-                    android:layout_width="50dp"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent" android:id="@+id/leftButton"
                     android:textColor="@android:color/white"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textStyle="bold" android:textSize="35sp"/>
             <Button
                     android:text="→"
-                    android:layout_width="50dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content" android:id="@+id/rightButton"
                     android:textColor="@android:color/white"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textStyle="bold" android:textSize="35sp"
@@ -59,10 +59,10 @@
     <TextView
             android:text="Due: "
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
+            android:layout_height="wrap_content"
             android:id="@+id/textView2" android:textColor="@android:color/white" android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="19dp"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/divider"
+            android:layout_marginBottom="18dp" app:layout_constraintBottom_toTopOf="@+id/divider"
     />
 
 </android.support.constraint.ConstraintLayout>
