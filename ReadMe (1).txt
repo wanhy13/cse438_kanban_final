@@ -3,6 +3,12 @@ Jieqiong Xiao 465180
 Haiyu Wan 458812
 Jin Han 467207
 
+Project Description
+-------------------
+Designed with SIMPLICITY and USABILITY, Kanban is a mobile application that helps you manage tasks in a mobile way.
+
+Features
+--------
 1. User can login/logout, the login information is stored using Firebase
 2. On login, there’re three tabs corresponding to “to do”, “doing”,”done”, each task would have title and due date displayed.
 3. In “to do” section, user could press the “+” button  to add a new task: title, details, due date and take pictures.
@@ -14,6 +20,3 @@ Jin Han 467207
 9. Use gesture（long press）to delete each task.
 10. User could click “log out” button to log out.
 
-PS:
-User need to press OK to store the task every time they need to edit it.
-User could only use Calendar button to change the due date. It couldn’t be edited directly on the text field.
